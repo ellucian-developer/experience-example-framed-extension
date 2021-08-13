@@ -15,7 +15,7 @@ const styles = () => ({
 
 function FramedPage({classes}) {
     const {
-        cardConfiguration: {
+        configuration: {
             pageIframeSrc: src,
             pageIframeSandboxOptions: sandboxOptions
         } = {}

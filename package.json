@@ -1,6 +1,6 @@
 {
   "name": "experience-extension-framed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Description of experience-extension-framed",
   "main": "index.js",
   "license": "UNLICENSED",
@@ -14,7 +14,7 @@
     "test": "cross-env BABEL_ENV=test JEST_JUNIT_OUTPUT=./report.xml jest --coverage"
   },
   "dependencies": {
-    "@ellucian/experience-extension-hooks": "github:ellucian-developer/experience-extension-hooks#missing-setPreventRemove-and-setPreventRemoveMessage",
+    "@ellucian/experience-extension-hooks": "git+https://github.com/ellucian-developer/experience-extension-hooks.git#1.0.5",
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
     "react": "16.9.0",
