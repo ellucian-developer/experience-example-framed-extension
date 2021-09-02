@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@ellucian/react-design-system/core/styles';
-import {ExtensionProvider, useCardInfo} from '@ellucian/experience-extension-hooks';
+import {ExtensionProvider, useCardInfo, useExtensionControl} from '@ellucian/experience-extension-hooks';
 
 import Framed from '../components/Framed';
 
@@ -20,6 +20,10 @@ function FramedPage({classes}) {
             pageIframeSandboxOptions: sandboxOptions
         } = {}
     } = useCardInfo();
+
+    const { setPageToolbar } = useExtensionControl();
+
+    const [ refreshCount, setRefreshCount ] = useState(0);
 
     useEffect(() => {
         // this modifies some parent <div>s to allow the frame
@@ -40,11 +44,21 @@ function FramedPage({classes}) {
         `;
 
         pageContent.style = 'flex: 1 1 auto';
+
+        setPageToolbar({
+            primaryCommands: [
+                {
+                    icon: 'refresh',
+                    label: 'Refresh',
+                    callback: () => { setRefreshCount(count => count + 1) }
+                }
+            ]
+        })
     }, [])
 
     return (
         <div className={classes.root}>
-            <Framed src={src} sandboxOptions={sandboxOptions}/>
+            <Framed key={refreshCount} src={src} sandboxOptions={sandboxOptions}/>
         </div>
     )
 }
