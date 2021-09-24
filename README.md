@@ -3,7 +3,7 @@ Includes a card implementation which renders a URL in an iframe and a page imple
 <br/>
 
 ## Framed Card
-The card's iframe source URL is configured by the Admin in Card Management. See [extension.js](./extension.js) configuration key cardIframeSource. The iframe will also attach sandbox options as configured in Card Management. Its key in extension.js is cardIframeSandboxOptions. For the list of sandbox options and their descriptions, see (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox).
+The card's iframe source URL is configured by the Admin in Card Management. See [extension.js](./extension.js) configuration key cardIframeSource. The iframe will also attach sandbox options as configured in Card Management. Its key in extension.js is cardIframeSandboxOptions. For the list of sandbox options and their descriptions, see (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox). Example value _allow-same-origin allow-scripts. allow-same-origin is needed if the framed content makes any JavaScript API calls.
 
 This example extension.js defines five instances of the card. This example shows how you could create as many cards as needed. Each card will launch the same page with a different page URL.
 
