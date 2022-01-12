@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@ellucian/react-design-system/core/styles';
-import {ExtensionProvider, useCardInfo, useExtensionControl} from '@ellucian/experience-extension-hooks';
+import {useCardInfo, usePageControl} from '@ellucian/experience-extension/extension-utilities';
 
 import Framed from '../components/Framed';
 
@@ -15,13 +15,13 @@ const styles = () => ({
 
 function FramedPage({classes}) {
     const {
-        configuration: {
+        cardConfiguration: {
             pageIframeSrc: src,
             pageIframeSandboxOptions: sandboxOptions
         } = {}
     } = useCardInfo();
 
-    const { setPageToolbar } = useExtensionControl();
+    const { setPageToolbar } = usePageControl();
 
     const [ refreshCount, setRefreshCount ] = useState(0);
 
@@ -67,11 +67,4 @@ FramedPage.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-const FramedPageWithStyle = withStyles(styles)(FramedPage);
-
-export default function Page(props) {
-    return (
-        <ExtensionProvider {...props}>
-            <FramedPageWithStyle/>
-        </ExtensionProvider>)
-}
+export default withStyles(styles)(FramedPage);

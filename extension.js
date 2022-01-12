@@ -2,139 +2,16 @@ module.exports = {
     name: 'Framed',
     publisher: '',
     cards: [{
-        type: 'FramedCard1',
+        type: 'FramedCard',
         source: './src/cards/FramedCard.jsx',
         title: 'Framed Card',
-        displayCardType: 'FramedCard1',
+        displayCardType: 'Framed',
         description: 'Renders a URL in an iframe',
-        pageRoute: {
-            route: '/'
+        // Remove the template block if card should be a single card vs a template
+        template: {
+            image: './src/assets/embedded_content.png',
+            title: 'Framed Card and Page'
         },
-        configuration: {
-            client: [{
-                key: 'cardIframeSrc',
-                label: 'Card Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'cardIframeSandboxOptions',
-                label: 'Card Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSrc',
-                label: 'Page Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSandboxOptions',
-                label: 'Page Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }]
-        }
-    }, {
-        type: 'FramedCard2',
-        source: './src/cards/FramedCard.jsx',
-        title: 'Framed Card',
-        displayCardType: 'FramedCard2',
-        description: 'Renders a URL in an iframe',
-        pageRoute: {
-            route: '/'
-        },
-        configuration: {
-            client: [{
-                key: 'cardIframeSrc',
-                label: 'Card Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'cardIframeSandboxOptions',
-                label: 'Card Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSrc',
-                label: 'Page Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSandboxOptions',
-                label: 'Page Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }]
-        }
-    }, {
-        type: 'FramedCard3',
-        source: './src/cards/FramedCard.jsx',
-        title: 'Framed Card',
-        displayCardType: 'FramedCard3',
-        description: 'Renders a URL in an iframe',
-        pageRoute: {
-            route: '/'
-        },
-        configuration: {
-            client: [{
-                key: 'cardIframeSrc',
-                label: 'Card Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'cardIframeSandboxOptions',
-                label: 'Card Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSrc',
-                label: 'Page Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSandboxOptions',
-                label: 'Page Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }]
-        }
-    }, {
-        type: 'FramedCard4',
-        source: './src/cards/FramedCard.jsx',
-        title: 'Framed Card',
-        displayCardType: 'FramedCard4',
-        description: 'Renders a URL in an iframe',
-        pageRoute: {
-            route: '/'
-        },
-        configuration: {
-            client: [{
-                key: 'cardIframeSrc',
-                label: 'Card Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'cardIframeSandboxOptions',
-                label: 'Card Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSrc',
-                label: 'Page Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSandboxOptions',
-                label: 'Page Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }]
-        }
-    }, {
-        type: 'FramedCard5',
-        source: './src/cards/FramedCard.jsx',
-        title: 'Framed Card',
-        displayCardType: 'FramedCard5',
-        description: 'Renders a URL in an iframe',
         pageRoute: {
             route: '/'
         },
