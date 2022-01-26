@@ -43,3 +43,5 @@ Minimum contribution steps
 1. Push your commit to GitHub to your fork
 1. Create a PR
 1. After being reviewed and approved, it will be merged
+
+Copyright 2021–2022 Ellucian Company L.P. and its affiliates.

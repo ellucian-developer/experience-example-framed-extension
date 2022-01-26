@@ -1,3 +1,5 @@
+// Copyright 2021-2022 Ellucian Company L.P. and its affiliates.
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useCardInfo} from '@ellucian/experience-extension/extension-utilities';
