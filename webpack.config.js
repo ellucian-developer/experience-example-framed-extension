@@ -22,12 +22,5 @@ module.exports = async (env, options) => {
 
     // For advanced scenarios, dynamically modify webpackConfig here.
 
-    // this is needed for @ellucian/experience-extension-hooks
-    webpackConfig.module.rules.forEach( rule => {
-        if (rule.loader === 'babel-loader') {
-            rule.exclude = /node_modules\/(?!(@ellucian)\/)/
-        }
-    })
-
     return webpackConfig;
 };

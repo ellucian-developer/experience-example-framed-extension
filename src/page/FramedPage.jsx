@@ -28,25 +28,6 @@ function FramedPage({classes}) {
     const [ refreshCount, setRefreshCount ] = useState(0);
 
     useEffect(() => {
-        // this modifies some parent <div>s to allow the frame
-        // to use 100% of the available height for the card or page
-        const main = document.querySelector('[role="main"]');
-        const mainParent = main.parentElement;
-        const pageContent = main.children[1];
-
-        mainParent.style = `
-            display: flex;
-            flex-direction: column;
-        `;
-
-        main.style = `
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-        `;
-
-        pageContent.style = 'flex: 1 1 auto';
-
         setPageToolbar({
             primaryCommands: [
                 {
