@@ -28,6 +28,13 @@ function FramedPage({classes}) {
     const [ refreshCount, setRefreshCount ] = useState(0);
 
     useEffect(() => {
+        // this modifies a parent <div> to allow the frame
+        // to use 100% of the available width for the page
+        const main = document.querySelector('[role="main"]');
+        const pageContent = main.children[1];
+
+        pageContent.style = 'padding: 0px';
+
         setPageToolbar({
             primaryCommands: [
                 {
