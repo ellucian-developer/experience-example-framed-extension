@@ -1,9 +1,9 @@
 // Copyright 2021-2022 Ellucian Company L.P. and its affiliates.
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {useCardInfo} from '@ellucian/experience-extension/extension-utilities';
-import {withStyles} from '@ellucian/react-design-system/core/styles';
+import { useCache, useCardInfo } from '@ellucian/experience-extension/extension-utilities';
+import { withStyles } from '@ellucian/react-design-system/core/styles';
 
 import Framed from '../components/Framed';
 
@@ -18,17 +18,37 @@ const styles = () => ({
         position: 'absolute',
         height: '100%',
         width: '100%',
-        zIndex: '9999'
+        zIndex: '9998'
     }
 });
 
+const cacheKey = 'custom-configuration';
+
 function FramedCard({classes}) {
+    const { storeItem } = useCache();
     const {
+        cardId,
         configuration: {
-            cardIframeSrc: src,
-            cardIframeSandboxOptions: sandboxOptions
+            cardIframeSrc,
+            cardIframeSandboxOptions,
+            customConfiguration,
+            customConfiguration: {
+                cardUrl,
+                cardSandboxOptions
+            } = {}
         }
     } = useCardInfo();
+
+    useEffect(() => {
+        storeItem({
+            data: { ...customConfiguration },
+            key: cacheKey,
+            scope: cardId
+        });
+    }, [cardId, customConfiguration, storeItem])
+
+    const src = cardUrl || cardIframeSrc;
+    const sandboxOptions = cardSandboxOptions || cardIframeSandboxOptions;
 
     return (
         <div className={classes.root}>

@@ -2,7 +2,7 @@
 
 module.exports = {
     name: 'Framed',
-    publisher: '',
+    publisher: 'Ellucian',
     cards: [{
         type: 'FramedCard',
         source: './src/cards/FramedCard.jsx',
@@ -14,31 +14,28 @@ module.exports = {
             image: './src/assets/embedded_content.png',
             title: 'Framed Card and Page'
         },
+        customConfiguration: {
+            source: './src/cards/FramedCardConfiguration.jsx'
+        },
         pageRoute: {
             route: '/'
+        }
+    }, {
+        type: 'IconMessageCard',
+        source: './src/cards/IconMessageCard.jsx',
+        title: 'Icon Message Card',
+        displayCardType: 'Icon Message',
+        description: 'Renders an icon and message to launch a framed page',
+        // Remove the template block if card should be a single card vs a template
+        template: {
+            image: './src/assets/icon_message.png',
+            title: 'Icon Message Card and Framed Page'
         },
-        configuration: {
-            client: [{
-                key: 'cardIframeSrc',
-                label: 'Card Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'cardIframeSandboxOptions',
-                label: 'Card Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSrc',
-                label: 'Page Iframe src',
-                type: 'string',
-                required: true
-            }, {
-                key: 'pageIframeSandboxOptions',
-                label: 'Page Iframe Sandbox Options',
-                type: 'string',
-                required: true
-            }]
+        customConfiguration: {
+            source: './src/cards/IconMessageCardConfiguration.jsx'
+        },
+        pageRoute: {
+            route: '/'
         }
     }],
     page: {

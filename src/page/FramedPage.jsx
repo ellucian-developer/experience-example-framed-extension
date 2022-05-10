@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@ellucian/react-design-system/core/styles';
-import {useCardInfo, usePageControl} from '@ellucian/experience-extension/extension-utilities';
+import { withStyles } from '@ellucian/react-design-system/core/styles';
+import { useCache, useCardInfo, usePageControl } from '@ellucian/experience-extension/extension-utilities';
 
 import Framed from '../components/Framed';
 
@@ -15,13 +15,33 @@ const styles = () => ({
     }
 });
 
+const cacheKey = 'custom-configuration';
+
 function FramedPage({classes}) {
+    const { getItem } = useCache();
     const {
+        cardId,
         cardConfiguration: {
-            pageIframeSrc: src,
-            pageIframeSandboxOptions: sandboxOptions
+            pageIframeSrc,
+            pageIframeSandboxOptions,
+            customConfiguration: {
+                pageUrl,
+                pageSandboxOptions
+            } = {}
         } = {}
     } = useCardInfo();
+
+    const [cacheCustomConfiguration, setCustomConfiguration ] = useState();
+
+    useEffect(() => {
+        const { data: customConfiguration } = getItem({key: cacheKey, scope: cardId});
+        if (customConfiguration) {
+            setCustomConfiguration(customConfiguration);
+        }
+    }, [cardId, getItem])
+
+    const src = pageUrl || pageIframeSrc || cacheCustomConfiguration?.pageUrl;
+    const sandboxOptions = pageSandboxOptions || pageIframeSandboxOptions || cacheCustomConfiguration?.pageSandboxOptions;
 
     const { setPageToolbar } = usePageControl();
 
@@ -44,7 +64,7 @@ function FramedPage({classes}) {
                 }
             ]
         })
-    }, [])
+    }, [setPageToolbar])
 
     return (
         <div className={classes.root}>
