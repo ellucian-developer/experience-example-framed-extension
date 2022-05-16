@@ -1,24 +1,36 @@
 # <div style="text-align: center">Framed Extension</div>
-Includes a card implementation which renders a URL in an iframe and a page implementtation which renders a possibly different URL in an iframe.
+Includes two card styles that can be used to launch a Page with an iframed URL.
+
+The first card style includes an icon, a message header and a description. Clicking or touching the card will launch the page that will load the specified URL into an iframe.
+
+The second card style uses an iframe in the card to render a URL. Clicking or touching the card will launch the page that will load the specified URL into an iframe.
 <br/>
 
-## Framed Card
-The card's iframe source URL is configured by the Admin in Card Management. See [extension.js](./extension.js) configuration key cardIframeSource. The iframe will also attach sandbox options as configured in Card Management. Its key in extension.js is cardIframeSandboxOptions. For the list of sandbox options and their descriptions, see (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox). Example value _allow-same-origin allow-scripts_. allow-same-origin is needed if the framed content makes any JavaScript API calls. If you trust the framed URL, a list of sandbox options that you might use are: _allow-same-origin allow-forms allow-modals allow-popups allow-scripts allow-popups-to-escape-sandbox_.
+## Icon Card and Page
+This card renders an icon, a message header and a description as configured in Card Management. This card has a Custom Configuration component that is used to manage the card icon, message header, description, and the page URL and sandbox options. See: [IconMessageCardConfiguration.jsx](./src/cards/IconMessageCardConfiguration.jsx).
 
-As defined, you can not interact with the card. It is merely a link to the page. You can change this by altering the pageRoute entry in extension.js. If you do this, then you need to add something to the card to launch the page.
+The card includes an overlay \<div\> that intercepts interactions. Any click on the card will cause the page to be launched.
+
+## Iframe Card and Page
+This card's iframe source URL is configured by the Admin in Card Management. This card has a Custom Configuration component that is used to manage the card and page URL's and sandbox options. See: [FramedCardConfiguration.jsx](/src/cards/FramedCardConfiguration.jsx). 
+
+The card includes an overlay \<div\> that intercepts interactions. Any click on the card will cause the page to be launched.
 
 ## Framed Page
-The page's iframe source URL is configured by the Admin in Card Management. See [extension.js](./extension.js) configuration key pageIframeSource. The iframe will also attach sandbox options as configured in Card Management. Its key in extension.js is pageIframeSandboxOptions. For the list of sandbox options and their descriptions, see (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox).
+Both cards launch a Page that is entirely composed of an iframe using the configured URL. There are several sandbox options that are also configured.
 
 ## Template Card
-The extension.js as delivered in this example uses the "Template Card" feature. This allows this card to be added in Card Management as a new card instance multiple times, with each instance configured to use different content. See the _template_ block contained in the card block of extension.js
-
-## Multiple Cards instead of Template
-There is an extension-multi-card.js file which shows an alternate way to define one or more non-template cards. This could be used as an example of creating single purpose cards in which the framed URLs are baked into the card rather than being configured in Card Management.
+Both cards in this extension use the "Template Card" feature. This allows the cards to be added in Card Management as a new card instance multiple times, with each instance configured to use different content. See the _template_ block contained in the card block of extension.js
 
 ## Card Configuration
+Icon Message Card Configuration
 <p align="center">
-  <img src="docs/images/config.png?raw=true" />
+  <img src="docs/images/IconMessageCardConfiguration.jpg?raw=true" />
+</p>
+
+Iframe Card Configuration
+<p align="center">
+  <img src="docs/images/FramedCardConfiguration.jpg?raw=true" />
 </p>
 
 ## Using this example
