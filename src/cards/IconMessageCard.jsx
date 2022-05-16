@@ -24,6 +24,8 @@ const styles = () => ({
         marginBottom: spacing30
     },
     text: {
+        marginLeft: spacing60,
+        marginRight: spacing60,
         color: colorTextNeutral500
     },
     overlay: {
