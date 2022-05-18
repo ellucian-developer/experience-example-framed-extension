@@ -5,12 +5,12 @@ import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { icons, Icon } from '@ellucian/ds-icons/lib';
 import {
-    Button,
     Card,
     CardContent,
     CardHeader,
     Checkbox,
-    Dialog,
+    Dropdown,
+    DropdownItem,
     FormControlLabel,
     FormGroup,
     Grid,
@@ -109,7 +109,6 @@ function FramedCardConfiguration(props) {
     } = useCardInfo();
 
     const [ configurationLoaded, setConfigurationLoaded ] = useState(false);
-    const [ showSelectIcon, setShowSelectIcon ] = useState(false);
     const [ cardIconName, setCardIconName ] = useState('');
     const [ cardMessageHeader, setCardMessageHeader ] = useState('');
     const [ cardMessage, setCardMessage ] = useState('');
@@ -177,17 +176,9 @@ function FramedCardConfiguration(props) {
         setIsCustomConfigurationValid(cardIconName && cardIconName !== '' && pageUrlIsValid);
     }, [cardIconName, pageUrlIsValid, setIsCustomConfigurationValid]);
 
-    function onShowSelectIcon() {
-        setShowSelectIcon(true);
-    }
-
-    function onCloseSelectIcon() {
-        setShowSelectIcon(false);
-    }
-
-    function onSelectIcon(name) {
+    function onPickIcon(event) {
+        const {target: { value: name } } = event;
         setCardIconName(name);
-        setShowSelectIcon(false);
     }
 
     function onCardMessageHeaderChange({target}) {
@@ -219,13 +210,22 @@ function FramedCardConfiguration(props) {
                             <Grid item>
                                 <Grid container spacing={4} alignItems={'center'}>
                                     <Grid item>
-                                        <Button
-                                            className={classes.selectButton}
-                                            size="large"
-                                            onClick={onShowSelectIcon}
+                                        <Dropdown
+                                            label={intl.formatMessage({id: 'icon'})}
+                                            onChange={onPickIcon}
+                                            value={cardIconName}
                                         >
-                                            {intl.formatMessage({id: 'select-icon'})}
-                                        </Button>
+                                            {icons.map(iconName => {
+                                                return (
+                                                    <DropdownItem
+                                                        key={iconName}
+                                                        label={iconName}
+                                                        LeftIconComponent={<Icon name={iconName} />}
+                                                        value={iconName}
+                                                    />
+                                                );
+                                            })}
+                                        </Dropdown>
                                     </Grid>
                                     <Grid item>
                                         <Icon
@@ -235,24 +235,6 @@ function FramedCardConfiguration(props) {
                                         />
                                     </Grid>
                                 </Grid>
-                                <Dialog open={showSelectIcon} onClose={onCloseSelectIcon}>
-                                    <Typography variant="h3">
-                                        {intl.formatMessage({id: 'select-an-icon'})}
-                                    </Typography>
-                                    <Grid container spacing={2}>
-                                        {icons.map( iconName => (
-                                            <Grid item key={iconName}>
-                                                <Icon
-                                                    className={classes.iconsIcon}
-                                                    large
-                                                    style={{ color: primaryColor }}
-                                                    name={iconName}
-                                                    onClick={() => onSelectIcon(iconName)}
-                                                />
-                                            </Grid>
-                                        ))}
-                                    </Grid>
-                                </Dialog>
                             </Grid>
                             <Grid item>
                                 <TextField

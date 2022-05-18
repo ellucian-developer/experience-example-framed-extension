@@ -8,7 +8,7 @@ import { withStyles } from '@ellucian/react-design-system/core/styles';
 import { colorTextNeutral500, sizingXxLarge, spacing30, spacing60 } from '@ellucian/react-design-system/core/styles/tokens';
 import { useCache, useCardInfo, useThemeInfo } from '@ellucian/experience-extension/extension-utilities';
 
-const styles = () => ({
+const styles = (theme) => ({
     root: {
         height: '100%',
         display: 'flex',
@@ -32,7 +32,7 @@ const styles = () => ({
         position: 'absolute',
         height: '100%',
         width: '100%',
-        zIndex: '9998'
+        zIndex: theme.zIndex.drawer - 1
     }
 });
 
