@@ -26,7 +26,8 @@ const styles = (theme) => ({
     text: {
         marginLeft: spacing60,
         marginRight: spacing60,
-        color: colorTextNeutral500
+        color: colorTextNeutral500,
+        textAlign: 'center'
     },
     overlay: {
         position: 'absolute',
