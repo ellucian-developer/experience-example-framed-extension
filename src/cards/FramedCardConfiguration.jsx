@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
-import {useCardControl, useCardInfo} from '@ellucian/experience-extension/extension-utilities';
+import {useCardControl, useCardInfo} from '@ellucian/experience-extension-utils';
 import { Card, CardContent, CardHeader, Checkbox, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@ellucian/react-design-system/core';
 import {withStyles} from '@ellucian/react-design-system/core/styles';
 import {spacing30} from '@ellucian/react-design-system/core/styles/tokens';
@@ -51,8 +51,8 @@ const sandboxOptionsList = [
     'allow-popups-to-escape-sandbox',
     'allow-same-origin',
     'allow-scripts',
-    'allow-scrolling',
-    'allow-top-navigation'
+    'allow-top-navigation',
+    'allow-top-navigation-by-user-activation'
 ];
 
 /*
@@ -62,8 +62,7 @@ const additionalSandboxOptionsList = [
     'allow-pointer-lock',
     'allow-presentation',
     'allow-storage-access-by-user-activation',
-    'allow-top-navigation',
-    'allow-top-navigation-by-user-activation'
+    'allow-top-navigation'
 ]
 */
 

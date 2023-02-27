@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
-import { useCache, useCardInfo, usePageControl } from '@ellucian/experience-extension/extension-utilities';
+import { useCache, useCardInfo, usePageControl } from '@ellucian/experience-extension-utils';
 
 import Framed from '../components/Framed';
 
@@ -48,13 +48,6 @@ function FramedPage({classes}) {
     const [ refreshCount, setRefreshCount ] = useState(0);
 
     useEffect(() => {
-        // this modifies a parent <div> to allow the frame
-        // to use 100% of the available width for the page
-        const main = document.querySelector('[role="main"]');
-        const pageContent = main.children[1];
-
-        pageContent.style = 'padding: 0px';
-
         setPageToolbar({
             primaryCommands: [
                 {

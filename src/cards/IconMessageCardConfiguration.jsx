@@ -19,7 +19,7 @@ import {
 } from '@ellucian/react-design-system/core';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
 import { sizingXxLarge, spacing30 } from '@ellucian/react-design-system/core/styles/tokens';
-import { useCardControl, useCardInfo, useThemeInfo } from '@ellucian/experience-extension/extension-utilities';
+import { useCardControl, useCardInfo, useThemeInfo } from '@ellucian/experience-extension-utils';
 
 import InfoIconPopper from '../components/InfoIconPopper';
 import { withIntl } from '../components/ReactIntlProviderWrapper';
@@ -72,8 +72,8 @@ const sandboxOptionsList = [
     'allow-popups-to-escape-sandbox',
     'allow-same-origin',
     'allow-scripts',
-    'allow-scrolling',
-    'allow-top-navigation'
+    'allow-top-navigation',
+    'allow-top-navigation-by-user-activation'
 ];
 
 /*
@@ -82,8 +82,7 @@ const additionalSandboxOptionsList = [
     'allow-orientation-lock',
     'allow-pointer-lock',
     'allow-presentation',
-    'allow-storage-access-by-user-activation',
-    'allow-top-navigation-by-user-activation'
+    'allow-storage-access-by-user-activation'
 ]
 */
 

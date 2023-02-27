@@ -2,7 +2,7 @@
 
 module.exports = {
     name: 'Framed',
-    publisher: 'Ellucian',
+    publisher: '',
     cards: [{
         type: 'FramedCard',
         source: './src/cards/FramedCard.jsx',
@@ -39,6 +39,7 @@ module.exports = {
         }
     }],
     page: {
-        source: './src/page/FramedPage.jsx'
+        source: './src/page/FramedPage.jsx',
+        fullWidth: true
     }
 }
