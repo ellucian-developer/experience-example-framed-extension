@@ -6,7 +6,7 @@ import { Icon } from '@ellucian/ds-icons/lib';
 import { Typography } from '@ellucian/react-design-system/core';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
 import { colorTextNeutral500, sizingXxLarge, spacing30, spacing60 } from '@ellucian/react-design-system/core/styles/tokens';
-import { useCache, useCardInfo, useThemeInfo } from '@ellucian/experience-extension/extension-utilities';
+import { useCache, useCardInfo, useThemeInfo } from '@ellucian/experience-extension-utils';
 
 const styles = (theme) => ({
     root: {

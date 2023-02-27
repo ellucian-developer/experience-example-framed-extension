@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useCache, useCardInfo } from '@ellucian/experience-extension/extension-utilities';
+import { useCache, useCardInfo } from '@ellucian/experience-extension-utils';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
 
 import Framed from '../components/Framed';
