@@ -11,8 +11,9 @@ module.exports = {
         description: 'Renders a URL in an iframe',
         // Remove the template block if card should be a single card vs a template
         template: {
-            image: './src/assets/Iframe Card and Page.png',
-            title: 'Iframe Card and Page'
+            icon: 'applications',
+            title: 'Iframe Card and Page',
+            description: 'Renders a URL in an iframe in both the card and page'
         },
         customConfiguration: {
             source: './src/cards/FramedCardConfiguration.jsx'
@@ -28,8 +29,9 @@ module.exports = {
         description: 'Renders an icon and message to launch a framed page',
         // Remove the template block if card should be a single card vs a template
         template: {
-            image: './src/assets/Icon Card and Page.png',
-            title: 'Icon Card and Page'
+            icon: 'applications',
+            title: 'Icon Card and Page',
+            description: 'Renders an icon and message in the card and a URL in an iframe int the page'
         },
         customConfiguration: {
             source: './src/cards/IconMessageCardConfiguration.jsx'
