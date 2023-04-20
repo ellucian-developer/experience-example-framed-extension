@@ -1,8 +1,8 @@
 // Copyright 2021-2022 Ellucian Company L.P. and its affiliates.
 
 module.exports = {
-    name: 'framed',
-    publisher: 'Ranger',
+    name: 'Framed',
+    publisher: '',
     cards: [{
         type: 'FramedCard',
         source: './src/cards/FramedCard.jsx',
@@ -11,7 +11,7 @@ module.exports = {
         description: 'Renders a URL in an iframe',
         // Remove the template block if card should be a single card vs a template
         template: {
-            icon: 'application',
+            icon: 'applications',
             title: 'Iframe Card and Page',
             description: 'Renders a URL in an iframe in both the card and page'
         },
@@ -29,7 +29,7 @@ module.exports = {
         description: 'Renders an icon and message to launch a framed page',
         // Remove the template block if card should be a single card vs a template
         template: {
-            icon: 'application',
+            icon: 'applications',
             title: 'Icon Card and Page',
             description: 'Renders an icon and message in the card and a URL in an iframe int the page'
         },
