@@ -8,6 +8,8 @@ import { withStyles } from '@ellucian/react-design-system/core/styles';
 import { colorTextNeutral500, sizingXxLarge, spacing30, spacing60 } from '@ellucian/react-design-system/core/styles/tokens';
 import { useCache, useCardInfo, useThemeInfo } from '@ellucian/experience-extension-utils';
 
+import sanitizeHtml from 'sanitize-html';
+
 const styles = (theme) => ({
     root: {
         height: '100%',
@@ -66,7 +68,7 @@ function IconMessageCard({classes}) {
     return (
         <div className={classes.root}>
             <div className={classes.overlay}/>
-            <Icon className={classes.icon} style={{ color: primaryColor }} name={cardIconName} large/>
+            <Icon className={classes.icon} style={{ color: primaryColor }} name={sanitizeHtml(cardIconName)} large/>
             <Typography variant="h4" component="div">
                 {cardMessageHeader}
             </Typography>

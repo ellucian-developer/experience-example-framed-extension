@@ -1,16 +1,16 @@
 {
   "name": "experience-extension-framed",
-  "version": "2.2.1",
+  "version": "2.3.1",
   "description": "Framed cards and page",
   "license": "Apache-2.0",
   "private": true,
   "engines": {
-      "node": ">=18.0.0",
-      "npm": ">=8.3.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.3.0"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/ellucian-developer/experience-example-framed-extension"
+    "type": "git",
+    "url": "https://github.com/ellucian-developer/experience-example-framed-extension"
   },
   "scripts": {
     "lint": "npx eslint --ext .jsx,.js src",
@@ -29,7 +29,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-intl": "5.12.5",
-    "react-router-dom": "5.2.0"
+    "react-router-dom": "5.2.0",
+    "sanitize-html": "^2.11.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.17.0",
